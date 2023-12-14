@@ -36,7 +36,9 @@ function App() {
   };
 
   const handleDeleteBook = async (target) => {
-    const response = await axios.put(`http://localhost:3001/books/${target}`);
+    const response = await axios.delete(
+      `http://localhost:3001/books/${target}`
+    );
     const updatedBooks = books.filter((b) => {
       return b.id !== target;
     });
@@ -47,7 +49,6 @@ function App() {
     const response = await axios.post("http://localhost:3001/books", {
       title,
     });
-    console.log(response.data);
     setBooks([...books, response.data]);
   };
 
