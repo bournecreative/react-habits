@@ -5,7 +5,6 @@ export const BookEdit = ({ book, handleEditorClose }) => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log(book.id, newTitle);
     handleEditorClose(book.id, newTitle);
   };
 

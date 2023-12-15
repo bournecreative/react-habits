@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./BookCreateStyles.css";
+import BookContext from "../../context/books";
 
-export const BookCreate = ({ onCreate }) => {
+export const BookCreate = () => {
   const [bookTitle, setBookTitle] = useState("");
+  const { handleCreateBook } = useContext(BookContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onCreate(bookTitle);
+    handleCreateBook(bookTitle);
     setBookTitle("");
   };
 
