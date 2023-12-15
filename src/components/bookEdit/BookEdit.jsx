@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import BookContext from "../../context/books";
 
 export const BookEdit = ({ book, handleEditorClose }) => {
   const [newTitle, setNewTitle] = useState(book.title);
+  const { handleEditTitle } = useContext(BookContext);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
+    handleEditTitle(book.id, newTitle);
     handleEditorClose(book.id, newTitle);
   };
 
